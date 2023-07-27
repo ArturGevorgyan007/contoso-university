@@ -59,18 +59,18 @@ namespace ContosoUniversity.Common.Data
         private async Task InitializeSecureContext()
         {
             // abort if Administrator role exists
-            if (_webContext.Roles.Any(r => r.Name == _adminIdentityUser.Role))
-            {
-                return;
-            }
+            // if (_webContext.Roles.Any(r => r.Name == _adminIdentityUser.Role))
+            // {
+            //     return;
+            // }
 
             // create Administrator role
-            await _roleManager.CreateAsync(new IdentityRole(_adminIdentityUser.Role));
+            // await _roleManager.CreateAsync(new IdentityRole(_adminIdentityUser.Role));
 
             string user = _adminIdentityUser.UserName;
             string password = _adminIdentityUser.Password;
-            await _userManager.CreateAsync(new ApplicationUser { UserName = user, Email = user, EmailConfirmed = true }, password);
-            await _userManager.AddToRoleAsync(await _userManager.FindByNameAsync(user), "Administrator");
+            // await _userManager.CreateAsync(new ApplicationUser { UserName = user, Email = user, EmailConfirmed = true }, password);
+            // await _userManager.AddToRoleAsync(await _userManager.FindByNameAsync(user), "Administrator");
         }
     }
 }
